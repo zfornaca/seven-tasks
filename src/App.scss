@@ -1,0 +1,21 @@
+@import './styles/colors.scss';
+
+* {
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  background: $lightBlue;
+}
+
+.App {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+::selection {
+  background: $lightBlue;
+}

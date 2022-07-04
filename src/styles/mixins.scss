@@ -1,0 +1,36 @@
+// input range styling, accommodating both Chrome and Firefox
+@mixin track() {
+  background: black;
+  border-radius: 5px;
+  height: 8px;
+}
+
+@mixin thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: $brightOrange;
+  border: none;
+  border-radius: 50%;
+  height: 16px;
+  margin-top: -4px;
+  width: 16px;  
+}
+
+@mixin thumb-focus() {
+  outline-offset: 0;
+}
+
+@mixin thumb-focus-webkit() {
+  @include thumb;
+  outline: 3px solid black;
+}
+
+@mixin thumb-focus-moz() {
+  @include thumb;
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
+
+
+

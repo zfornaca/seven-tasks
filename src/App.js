@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from './components/Card.jsx';
+import Counter from './components/Counter.jsx';
+import TempConverter from './components/TempConverter.jsx';
+import FlightBooker from './components/FlightBooker.jsx';
+import Timer from './components/Timer.jsx';
+import CRUD from './components/CRUD.jsx';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Card title="Counter">
+        <Counter />
+      </Card>
+      <Card title="Temperature Converter">
+        <TempConverter />
+      </Card>
+      <Card title="Flight Booker">
+        <FlightBooker />
+      </Card>
+      <Card title="Timer">
+        <Timer />
+      </Card>
+      <Card title="CRUD">
+        <CRUD />
+      </Card>
     </div>
   );
 }

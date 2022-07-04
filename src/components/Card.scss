@@ -1,0 +1,167 @@
+@import '../styles/colors.scss';
+@import '../styles/mixins.scss';
+
+.card {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .card-header {
+    background: $brightBlue;
+    padding: 12px 20px;
+
+    .card-title {
+      font-size: 21px;
+      font-weight: 600;
+    }
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+
+
+  .card-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    .card-row-element {
+      &:not(:first-child) {
+        margin-left: 16px;
+      }
+    }
+  }
+
+  .card-column {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .card-column-element {
+      &:not(:first-child) {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .card-row, .card-column {
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+  }
+
+  @supports (-moz-appearance:none) {
+    input {
+      height: 28px;
+    } 
+  }
+
+  input, select {
+    outline-color: $brightBlue;
+    padding: 4px 6px;
+    width: 130px;
+    
+    &[type=range] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+      margin: 0, 8px, 0, 0;
+      width: 15rem;
+      
+      &::-webkit-slider-runnable-track {
+        @include track;
+      }
+
+      &::-moz-range-track {
+        @include track;
+      }
+
+      &::-webkit-slider-thumb {
+        @include thumb;
+      }
+
+      &::-moz-range-thumb {
+        @include thumb;
+      }
+
+      &:focus {
+        outline: none;
+
+        &::-webkit-slider-thumb {
+          @include thumb-focus-webkit;
+        }
+
+        &::-moz-range-thumb {
+          @include thumb-focus-moz;
+        }
+      }
+    }
+  
+
+
+    &.input-invalid {
+      background-color: $error;
+      border: 3px;
+      opacity: 0.9;
+    }
+
+    &.card-listbox {
+      height: 200px;
+      padding: 0;
+      width: 210px;
+
+      option {
+        color: black;
+        padding: 4px;
+      }
+
+      option:hover,
+      option:focus,
+      option:active,
+      option:checked,
+      option::selection {
+        background: $lightBlue;
+      }
+    }
+  }
+
+  .card-input-label {
+    display: inline-block;
+    padding-right: 10px;
+    text-align: end;
+    width: 80px;
+
+  }
+
+  button {
+    background: $brightOrange;
+    background-position: center;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    overflow: hidden;
+    padding: 8px 16px;
+    position: relative;
+    text-transform: uppercase;
+    transition: background 0.7s;
+
+    &:hover:not([disabled]) {
+      // simple ripple effect, from csstricks
+      background: $lightOrange radial-gradient(circle, transparent 1%, $brightOrange 1%) center/15000%;
+    }
+
+    &:active:not([disabled]) {
+      background-color: $brightOrange;
+      background-size: 100%;
+      transition: background 0s;
+    }
+  }
+}

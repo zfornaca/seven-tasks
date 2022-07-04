@@ -1,0 +1,18 @@
+@import '../styles/colors.scss';
+
+.progress-bar {
+  background: $lightBlue;
+  border: 2px solid $brightBlue;
+  border-radius: 10px;
+  height: 25px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  .filled {
+    background: $brightBlue;
+    bottom: 0;
+    position: absolute;
+    top: 0;
+  }
+}
