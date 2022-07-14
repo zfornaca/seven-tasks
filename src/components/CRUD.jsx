@@ -31,6 +31,13 @@ const CRUD = () => {
   };
 
   const handleSelection = (id) => {
+    if (namesById[id] !== null) {
+      setNameField(namesById[id].name);
+      setSurnameField(namesById[id].surname);
+    } else {
+      setNameField("");
+      setSurnameField("");
+    }
     setSelectedId(selectedId == id ? null : id);
   }
 
@@ -45,7 +52,10 @@ const CRUD = () => {
       setListOptions(getListOptions(namesById));
     } else {
       const filtered = Object.keys(namesById)
-      .filter(key => namesById[key].surname.toLowerCase().startsWith(filter.toLowerCase()))
+      .filter(key => {
+        return namesById[key].surname.toLowerCase().startsWith(filter.toLowerCase())
+          || namesById[key].name.toLowerCase().startsWith(filter.toLowerCase())
+      })
       .reduce((acc, key) => {
         acc[key] = namesById[key];
         return acc;
@@ -103,7 +113,7 @@ const CRUD = () => {
     </div>
     <div className="card-column">
       <div className="card-row">
-        <button className="card-row-element" onClick={handleCreate} disabled={nameField.length === 0 || surnameField.length === 0}>Create</button>
+        <button className="card-row-element" onClick={handleCreate} disabled={nameField.length === 0 || surnameField.length === 0 || selectedId !== null}>Create</button>
         <button className="card-row-element" onClick={handleUpdate} disabled={selectedId === null || nameField.length === 0 || surnameField.length === 0}>Update</button>
         <button className="card-row-element" onClick={handleDelete} disabled={selectedId === null}>Delete</button>
       </div>
